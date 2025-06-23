@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Wave - Deep Trading Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fdfdfd;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 600px;
+            text-align: center;
+        }
+        h1 {
+            font-weight: 600;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+        button {
+            padding: 15px 40px;
+            background: #007bff;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        pre {
+            text-align: left;
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            max-height: 400px;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #333;
+        }
+        .footer {
+            font-size: 12px;
+            margin-top: 30px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Wave - Deep Trading Analyzer</h1>
+        <p>Write your request. Example: <i>"Analyse BTCUSDT with Elliott Wave, EMA and Fibonacci"</i></p>
+        <form method="POST">
+            <input type="text" name="user_prompt" placeholder="Enter your trading analysis request..." required>
+            <br>
+            <button type="submit">Generate</button>
+        </form>
+        {% if parsed_data %}
+            <h2>Parsed Data:</h2>
+            <pre>{{ parsed_data }}</pre>
+        {% endif %}
+        {% if pine_script %}
+            <h2>Generated Pine Script:</h2>
+            <pre>{{ pine_script }}</pre>
+        {% endif %}
+        <div class="footer">
+            Powered by AI Wave - Private Trading Assistant
+        </div>
+    </div>
+</body>
+</html>
